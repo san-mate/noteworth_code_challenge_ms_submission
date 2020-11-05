@@ -6,7 +6,7 @@ from providers.models import ProviderToken
 
 
 class NoteworthImportBackend(BaseImportBackend):
-    SITE_URL = 'http://localhost:5000'
+    SITE_URL = 'http://api:5000'
     API_FIELDS_TO_MODEL = {
         'name_given': 'first_name',
         'name_family': 'last_name',

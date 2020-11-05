@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile-api
+    command: poetry run flask run --host=0.0.0.0
+    ports:
+      - "5000:5000"
+  solution:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /bin/sh "./runner.sh"
+    volumes:
+      - ./noteworth_code_challenge:/code
+      - /code/static
+    ports:
+      - "8000:8000"
+    expose:
+      - "8000"
